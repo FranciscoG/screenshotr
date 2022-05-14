@@ -2,17 +2,15 @@
   "name": "screenshotr",
   "version": "1.0.0",
   "description": "Uses Headless Chrome to take screenshots of a website",
-  "main": "index.js",
+  "main": "screenshotr.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "francisco gutierrez",
+  "author": "franciscog",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.6.1",
-    "fs-extra": "^7.0.1",
-    "minimist": "^1.2.0",
-    "puppeteer": "^1.11.0",
-    "simplecrawler": "^1.1.6"
+    "commander": "^9.2.0",
+    "puppeteer": "^14.1.0"
   }
 }

@@ -1,8 +1,3 @@
-
-switch to Headless Chrome
-
-https://github.com/GoogleChrome/puppeteer
-
 Work in progress
 
 __Prerequisites:__

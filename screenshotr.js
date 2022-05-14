@@ -1,27 +1,21 @@
 #!/usr/bin/env node
-const path = require('path');
-const intake = require('./lib/intake.js');
-const scrape = require('./lib/scrape.js');
-var argv = require('minimist')(process.argv.slice(2));
+import path from 'path'
+import { program } from 'commander';
 
-function displayHelp(){
-  var helptext = `
-  Screenshot automation tool
-  Usage:
-    ./screenshots.js --capture path/to/your/config-file.json
-    
-    crawl a site to build a base config file for you
-    ./screenshots.js --scrape www.domain.com
-  
-  If no destination folder is set, a folder called "output" will be created in the current directory`;
-  
-  console.log(helptext);
-}
+// const intake = require("./lib/intake.js");
+import scrape from './lib/crawler/index.js';
+
+program
+  .option("-c, --capture <string>", "begin screenshoting")
+  .option("-s, --scrape <string>", "scrape url and build config file for capturing");
+
+program.parse(process.argv);
+const options = program.opts();
 
 /******************************************************************
  * Screenshotr
  * index.js
- * 
+ *
  * in this file we just process the config file and pass
  * it off to /lib/intake.js
  */
@@ -29,16 +23,15 @@ function displayHelp(){
 /**
  * Check if required command line arguments exist
  */
-if ( !argv.capture && !argv.scrape ) {
-  displayHelp();
-  process.exit(1);
+if (!options.capture && !options.scrape) {
+  program.help();
 }
 
-if (argv.capture) {
-  let userConfig = require( path.join( __dirname, argv.capture ) );
+if (options.capture) {
+  let userConfig = require(path.join(__dirname, options.capture));
   intake(userConfig);
 }
 
-if (argv.scrape) {
-  scrape(argv.scrape, argv.ssl);
+if (options.scrape) {
+  scrape(options.scrape);
 }

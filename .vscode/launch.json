@@ -12,7 +12,6 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}/screenshotr.js",
-      "args": ["-s", "https://ncu-dev-7363f744f84f-xp1-102-cm.azurewebsites.net"]
     },
   ]
 }

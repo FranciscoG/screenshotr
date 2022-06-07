@@ -2,7 +2,7 @@
 import path from 'path'
 import { program } from 'commander';
 
-// const intake = require("./lib/intake.js");
+import intake from './lib/intake';
 import scrape from './lib/crawler/index.js';
 
 program
@@ -11,14 +11,6 @@ program
 
 program.parse(process.argv);
 const options = program.opts();
-
-/******************************************************************
- * Screenshotr
- * index.js
- *
- * in this file we just process the config file and pass
- * it off to /lib/intake.js
- */
 
 /**
  * Check if required command line arguments exist

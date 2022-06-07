@@ -4,6 +4,10 @@
   "description": "Uses Headless Chrome to take screenshots of a website",
   "main": "screenshotr.js",
   "type": "module",
+  "engines" : { 
+    "npm" : ">=7.0.0",
+    "node" : ">=16.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
